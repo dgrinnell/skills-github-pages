@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - matplotlib
+    </py-env>
+</head>
+<body>
+    <h1>Matplotlib</h1>
+    <py-script> print("My Lineplot")</py-script>
+    <div id="lineplot"></div>
+    <py-script output="lineplot">
+# Python Code Goes Here ...
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+
+# pais 1
+x = [2016, 2017, 2018, 2019, 2020, 2021] #años
+y = [42, 43, 45, 47, 48, 50] #poblacion
+
+# pais 2
+x2 = [2016, 2017, 2018, 2019, 2020, 2021] #años
+y2 = [43, 43, 44, 44, 45, 45] #poblacion
+
+# plotting
+plt.plot(x, y, marker='o', linestyle='--', color='g', label='Colombia')
+plt.plot(x2, y2, marker='d', linestyle='-', color='r', label='Argentina')
+
+# agregar nombre a los ejes y titulo al grafico
+plt.xlabel('Años')
+plt.ylabel('Poblacion (M)')
+plt.title('Años vs Poblacion')
+plt.legend(loc='lower right')
+
+plt.yticks([41, 45, 48, 51])
+
+# guardar figura
+plt.savefig('ejemplo.png')
+
+# mostrar plot
+plt
+    </py-script>
+</body>
+</html>
+
